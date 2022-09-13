@@ -5,11 +5,14 @@ The deployment file should contain the MongoDB image and the environment variabl
 A secret file should be configured with the deployment file for authentication.
 
 ### b. mongodb_service.yml
+The service configuration for MongoDB is used to expose the backend application to the frontend application privately with ClusterIP type of service. It used to listen the traffic at the port 27017 of container and forward it to the port 27017 of the application.
 ### c. mongodb_secretes.yml
-NOTE: The secret file should applied before the deployment application.
+The secrete file contains the username and password in the encrypted format with the type of Opaque service.
+NOTE: The secret file should applied before apply the mongodb-deployment file.
 
 ## 2. Create the frontend
+The frontend application of MongoDB is MongoExpress which is connected to MongoDB at backend through the ConfigMap. It gives the UI to create and manupulate the databases at backend.
 ### a. mongoexp_deployment.yml
 ### b. mongoexp_service.yml
 ### c. mongoexp_configmap.yml
-A configmap file contains the configuration which is not required to be encrypted like secrets file. It contains the database endpoint which is redirected to the database service. The benefit of connecting the database url to the service endpoint instead of the database ClusterIP is that the service file is immutable and in case the ClusterIP changes, it will be automatically updated in configmap file of mongoexpress 
+A configmap file contains the configuration which is not required to be encrypted like secrets file. It contains the database endpoint which is redirected to the database service. The benefit of connecting the database url to the service endpoint instead of the database ClusterIP is that the service file is immutable and in case the ClusterIP changes, it will be automatically updated in configmap file of mongoexpress.
