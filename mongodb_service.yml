@@ -3,8 +3,7 @@ metadata:
   name: mongodb-service
 spec:
   selector:
-    app: mongoexp
-  type: LoadBalancer
+    app: mongodb
   ports:
     - port: 27017
       targetPort: 27017

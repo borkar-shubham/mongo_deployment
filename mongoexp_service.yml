@@ -5,6 +5,7 @@ metadata:
 scpec:
   selector:
     app: mongoexp
+  type: LoadBalancer
   ports:
     port: 80
     targetPort: 8081
