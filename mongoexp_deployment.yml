@@ -1,11 +1,8 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongoexp-deployment
-  labels:
-    app: mongoexp
 spec:
-  # replicas: 3
   selector:
     matchLabels:
       app: mongoexp
@@ -16,21 +13,21 @@ spec:
     spec:
       containers:
         - name: mongoexp
-          image: mongo-express:latest
+          image: mongo-express
           ports:
             - containerPort: 8081
           env:
             - name: ME_CONFIG_MONGODB_ADMINUSERNAME
               valueFrom:
                 secretKeyRef:
-                  name: mongodb-secrete
+                  name: mongodb-secret
                   key: username
             - name: ME_CONFIG_MONGODB_ADMINPASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: mongodb-secrete
+                  name: mongodb-secret
                   key: password
-            - name: ME_CONFIG_MONGODB_URL
+            - name: ME_CONFIG_MONGODB_SERVER
               valueFrom:
                 configMapKeyRef:
                   name: mongoexp-configmap
