@@ -5,7 +5,6 @@ metadata:
 spec:
   selector:
     app: mongodb
-  type: ClusterIP
   ports:
     - port: 27017
       targetPort: 27017
