@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: mongoexp-configmap
 data:
-  db_endpoint: mongodb-service
+  database_endpoint: mongodb-service
