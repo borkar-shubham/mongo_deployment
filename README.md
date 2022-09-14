@@ -16,8 +16,8 @@ The frontend application of MongoDB is MongoExpress which is connected to MongoD
 ### b. mongoexp_service.yml
 ### c. mongoexp_configmap.yml
 A configmap file contains the configuration which is not required to be encrypted like secrets file. It contains the database endpoint which is redirected to the database service. The benefit of connecting the database url to the service endpoint instead of the database ClusterIP is that the service file is immutable and in case the ClusterIP changes, it will be automatically updated in configmap file of mongoexpress.
----
-files must be triggered at the sequence of -
+
+#### Files must be triggered at the sequence of -
 * mongodb_secret.yml
 * mongodb_deployment.yml
 * mongodb_service.yml
