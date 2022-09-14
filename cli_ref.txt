@@ -1,0 +1,6 @@
+kubectl apply -f mongodb_secretes.yml
+kubectl apply -f mongodb_deployment.yml
+kubectl apply -f mongodb_service.yml
+kubectl apply -f mongoexp_configmap.yml
+kubectl apply -f mongoexp_deployment.yml
+kubectl apply -f mongoexp_service.yml
